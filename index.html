@@ -13,69 +13,69 @@
     <header class="header">
       <a href="" class="header__logo"><img src="./image/logo (1).svg" alt="logo" class="header__logo--picture">Virtuose</a>
       <nav class="header__navigation">
-        <li class="header__navigation--item"><a href="" class="header__navigation--link">Главная</a></li>
-        <li class="header__navigation--item"><a href="" class="header__navigation--link">О нас</a></li>
-        <li class="header__navigation--item"><a href="" class="header__navigation--link">Каталог</a></li>
-        <li class="header__navigation--item"><a href="" class="header__navigation--link">Эксклюзив</a></li>
-        <li class="header__navigation--item"><a href="" class="header__navigation--link">Контакты</a></li>
+        <li class="header__navigation--item"><a href="/" class="header__navigation--link">Главная</a></li>
+        <li class="header__navigation--item"><a href="#about" class="header__navigation--link">О нас</a></li>
+        <li class="header__navigation--item"><a href="#catalog" class="header__navigation--link">Каталог</a></li>
+        <li class="header__navigation--item"><a href="#exclusive" class="header__navigation--link">Эксклюзив</a></li>
+        <li class="header__navigation--item"><a href="#contacts" class="header__navigation--link">Контакты</a></li>
       </nav>
     </header>
     <main class="main">
-      <section class="cover">
+      <section class="cover" id="cover">
         <p class="cover__title">Мебель на заказ</p>
         <h1 class="cover__description">Изысканный дизайн для вашего интерьера</h1>
-        <a href="" class="cover__button">Выберите мебель</a>
+        <a href="#catalog" class="cover__button">Выберите мебель</a>
       </section>
-      <section class="exclusive">
+      <section class="exclusive" id="exclusive">
         <h1 class="exclusive__title">Уникальная мебель ручной работы</h1>
         <ul class="exclusive__content">
-          <li class="exclusive__item">
+          <li class="exclusive__item" id="exTable">
             <img src="./image/Wooden table.jpg" alt="" class="exclusive__image">
             <h3 class="exclusive__description">Деревянный стол</h3>
           </li>
-          <li class="exclusive__item">
+          <li class="exclusive__item"id="exDresser">
             <img src="./image/dresser.jpg" alt="" class="exclusive__image">
             <h3 class="exclusive__description">Винтажный комод</h3>
           </li>
-          <li class="exclusive__item">
+          <li class="exclusive__item" id="exBed">
             <img src="./image/bed.jpeg" alt="" class="exclusive__image">
             <h3 class="exclusive__description">Эко-кровать</h3>
           </li>
-          <li class="exclusive__item">
+          <li class="exclusive__item" id="exRack">
             <img src="./image/rack.jpg" alt="" class="exclusive__image">
             <h3 class="exclusive__description">Стелаж</h3>
           </li>
         </ul>
       </section>
-      <section class="catalog">
+      <section class="catalog" id="catalog">
         <h2 class="catalog__title">Наш каталог</h2>
         <ul class="catalog__content">
-          <li class="catalog__item">
+          <li class="catalog__item" id="catalog__table">
             <img src="./image/table__bn.png" alt="">
             <h3 class="catalog__name" id="catalog__table">Столы</h3>
           </li>
-          <li class="catalog__item">
+          <li class="catalog__item" id="catalog__armchair">
             <img src="./image/armchair.png" alt="">
             <h3 class="catalog__name" id="catalog__kreslo">Кресла</h3>
           </li>
-          <li class="catalog__item">
+          <li class="catalog__item" id="catalog__cabinets">
             <img src="./image/closet.png" alt="">
             <h3 class="catalog__name" id="catalog__shkaf">Шкафы</h3>
           </li>
-          <li class="catalog__item">
+          <li class="catalog__item" id="catalog__bed">
             <img src="./image/bed__bn.png" alt="">
             <h3 class="catalog__name" id="catalog__bed">Кровати</h3>
           </li>
         </ul>
       </section>
-      <section class="about">
+      <section class="about" id="about">
         <h2 class="about__title">О магазине</h2>
         <div class="about__content">
           <p class="about__description">Мы создаем мебель на заказ, сочетая стиль и качество. Используем только лучшие материалы и индивидуальный подход к каждому клиенту Виртуоз-групп. </p>
           <img src="./image/cover__background.png" alt="" class="about__picture">  
         </div>
       </section>
-      <section class="contacts">
+      <section class="contacts" id="contacts">
         <h2 class="contacts__title">Наши контакты</h2>
         <div class="contacts__content">
           <div class="contacts__info">
@@ -90,33 +90,25 @@
         </div>
       </section>
       <section class="order">
-        <h2 class="order__title">Оформить заказ</h2>
+        <h2 class="order__title">Обратный звонок</h2>
         <div class="order__content">
           <form name="" for="order" action="https://api.web3forms.com/submit" class="order__form" data-target="" method="POST">
 
             <input type="hidden" name="access_key" value="c7d4936d-9f30-47e5-af12-fcbf75e64cc6">
 
-            <input type="text" class="order__name" placeholder="Введите имя" required>
-            <label for="text" class="order__name--label">Введите имя</label>
+            <input type="text" id="user__name" class="order__name" placeholder="Введите имя" required>
+            <label for="user__name" class="order__name--label">Введите имя</label>
 
             <input type="text" class="order__number" name="order" id="phone" placeholder="+7(000)000-00-00" required>
+            <label for="phone" class="order__number--label">Телефон</label>
             
-            <input type="datetime" class="order__data" placeholder="" required>
-    
-            <input type="text" class="order__comment" required>
+            <input type="date" id="user__date" class="order__date" required>
+            <label for="user__date" class="order__date--label">Выберите дату</label>
+
+            <textarea type="text" id="user__comment" class="order__comment" placeholder="Добавьте комментарий"  required></textarea>
+            <label for="user__comment" class="order__comment--label">Добавьте комментарий</label>
             
             <button class="order__push">Заказать</button>
-          </form>
-        </div>
-      </section>
-      <section class="callback">
-        <h2 class="callback__title">Обратная связь</h2>
-        <div class="callback__content">
-          <form name="callback" class="callback__form" data-target="" method="POST">
-            <input type="text" class="callback__name" placeholder="Введите имя">
-            <input type="text" class="callback__number">
-            <input type="text" class="callback__text">
-            <button class="callback__push">Заказать</button>
           </form>
         </div>
       </section>
@@ -124,7 +116,7 @@
     <footer class="footer">
       <ul class="footer__content">
         <li class="footer__logo">
-          <img src="" alt="" class="footer__logo--picture">
+          <img src="./image/logo (1).svg" alt="" class="footer__logo--picture">
           <p class="footer__logo--text">Virtuos-group</p>
         </li>
         <li class="footer__navigation">
