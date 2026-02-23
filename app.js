@@ -41,14 +41,19 @@ rackTitle = ["Plan A", "Plan B", "Plan C", "Work Part L", "Work Part M", "Work P
 armchairTitle = ["Plan A", "Plan B", "Plan C", "Work Part L", "Work Part M", "Work Part S", "Work Part XL", "Work Part XXL", "Mirror Edge WFA"],
 cabinetsTitle = ["Plan A", "Plan B", "Plan C", "Work Part L", "Work Part M", "Work Part S", "Work Part XL", "Work Part XXL", "Mirror Edge WFA"];
 
-const exclusiveItem = document.querySelector('.exclusive__item');
+const exclusiveContent = document.querySelector('.exclusive__content');
 
 const container = document.querySelector('.container')
 
 const tableBlock = document.querySelector('#catalog__table'),
 armchairBlock = document.querySelector('#catalog__armchair'),
 cabinetsBlock = document.querySelector('#catalog__cabinets'),
-bedBlock = document.querySelector('#catalog__bed');
+bedBlock = document.querySelector('#catalog__bed'),
+modalBackg = document.querySelector('.modalBackground'),
+modalCont = document.querySelector('.modalContent'),
+modalCloseF = document.querySelector('.close__f'),
+modalCloseS = document.querySelector('.close__s'),
+modalCloseAll = document.querySelector('.modalClose');
 
 let product = {
     image: '',
@@ -88,111 +93,123 @@ const dropExclusiveItem = (event) => {
             description: tableDescription[index],
             image: tableImage[index]
           }));
+          render(productArray);
+          console.log(productArray);
+            break;
+        case event.target.id === "exDresser" || event.target.parentElement.id === "exDresser":
+          console.log(productArray)
+          productArray = dresserPrice.map((item, index) => ({
+            price: item,
+            title: dresserTitle[index],
+            description: dresserDescription[index],
+            image: dresserImage[index]
+          }));
+          render(productArray)
+          break;
+        case event.target.id === "exBed" || event.target.parentElement.id === "exBed":
+          productArray  = bedPrice.map((item, index) => ({
+            price: item,
+            title: bedTitle[index],
+            description: bedDescription[index],
+            image: bedImage[index]
+          }));
           render(productArray)
           console.log(productArray)
-            break;
-    
+          break;
+        case event.target.id === "exRack" || event.target.parentElement.id === "exRack":
+          productArray  = rackPrice.map((item, index) => ({
+            price: item,
+            title: rackTitle[index],
+            description: rackDescription[index],
+            image: rackImage[index]
+          }));
+          render(productArray)
+          console.log(productArray)
+          break;  
         default:
             break;
     }
 };
 
-const dropTable = () => {
-
-};
-
-const dropArmchair = () => {
-
-};
-
-const dropCabinets = () => {
-
-};
-
-const dropBed = () => {
-
-};
-
-const render = (element) => {
-  let modal = ``;
-  if (element.length != 0) {
-    modal += `
-<div class="modalBackground">
-  <div class="modalWindow">
-    <div class="modalClose">
-      <div class="close__f"></div>
-      <div class="close__s"></div>
-    </div>
-    <h2 class="modalTitle"></h2>
-    <div class="modalContent">
-      <div class="modalItem">
-        <img src="${element[0].image}" alt="" class="madalImage">
-        <h3 class="modalTitle">${element[0].title}</h3>
-        <span class="modalPrice">${element[0].price}</span>
-        <p class="modalDescription">${element[0].description}</p>
-      </div>
-      <div class="modalItem">
-        <img src="${element[1].image}" alt="" class="madalImage">
-        <h3 class="modalTitle">${element[1].title}</h3>
-        <span class="modalPrice">${element[1].price}</span>
-        <p class="modalDescription">${element[1].description}</p>
-      </div>
-      <div class="modalItem">
-        <img src="${element[2].image}" alt="" class="madalImage">
-        <h3 class="modalTitle">${element[2].title}</h3>
-        <span class="modalPrice">${element[2].price}</span>
-        <p class="modalDescription">${element[2].description}</p>
-      </div>
-      <div class="modalItem">
-        <img src="${element[3].image}" alt="" class="madalImage">
-        <h3 class="modalTitle">${element[3].title}</h3>
-        <span class="modalPrice">${element[3].price}</span>
-        <p class="modalDescription">${element[3].description}</p>
-      </div>
-      <div class="modalItem">
-        <img src="${element[4].image}" alt="" class="madalImage">
-        <h3 class="modalTitle">${element[4].title}</h3>
-        <span class="modalPrice">${element[4].price}</span>
-        <p class="modalDescription">${element[4].description}</p>
-      </div>
-      <div class="modalItem">
-        <img src="${element[5].image}" alt="" class="madalImage">
-        <h3 class="modalTitle">${element[5].title}</h3>
-        <span class="modalPrice">${element[5].price}</span>
-        <p class="modalDescription">${element[5].description}</p>
-      </div>
-      <div class="modalItem">
-        <img src="${element[6].image}" alt="" class="madalImage">
-        <h3 class="modalTitle">${element[6].title}</h3>
-        <span class="modalPrice">${element[6].price}</span>
-        <p class="modalDescription">${element[6].description}</p>
-      </div>
-      <div class="modalItem">
-        <img src="${element[7].image}" alt="" class="madalImage">
-        <h3 class="modalTitle">${element[7].title}</h3>
-        <span class="modalPrice">${element[7].price}</span>
-        <p class="modalDescription">${element[7].description}</p>
-      </div>
-      <div class="modalItem">
-        <img src="${element[8].image}" alt="" class="madalImage">
-        <h3 class="modalTitle">${element[8].title}</h3>
-        <span class="modalPrice">${element[8].price}</span>
-        <p class="modalDescription">${element[8].description}</p>
-      </div>
-    </div>
-  </div>
-</div>`;
-    container.innerHTML += modal;
-  } else {
-    let modalBackgroundActive = document.querySelector('.modalBackground');
-    modalBackgroundActive.style.cssText += "display: none;";
-     
+const dropTable = (event) => {
+  if(event.target.id === "catalog__table" || event.target.parentElement.id === "catalog__table") {
+    productArray  = tablePrice.map((item, index) => ({
+      price: item,
+      title: tableTitle[index],
+      description: tableDescription[index],
+      image: tableImage[index]
+    }));
+    render(productArray)
   }
 };
 
-const exclusiveItemListen = exclusiveItem.addEventListener('click', dropExclusiveItem); 
+const dropArmchair = (event) => {
+if(event.target.id === "catalog__armchair" || event.target.parentElement.id === "catalog__armchair") {
+    productArray  = armchairPrice.map((item, index) => ({
+      price: item,
+      title: armchairTitle[index],
+      description: armchairDescription[index],
+      image: armchairImage[index]
+    }));
+    render(productArray)
+  }
+};
+
+const dropCabinets = (event) => {
+if(event.target.id === "catalog__cabinets" || event.target.parentElement.id === "catalog__cabinets") {
+    productArray  = cabinetsPrice.map((item, index) => ({
+      price: item,
+      title: cabinetsTitle[index],
+      description: cabinetsDescription[index],
+      image: cabinetsImage[index]
+    }));
+    render(productArray)
+  }
+};
+
+const dropBed = (event) => {
+if(event.target.id === "catalog__bed" || event.target.parentElement.id === "catalog__bed") {
+    productArray  = bedPrice.map((item, index) => ({
+      price: item,
+      title: bedTitle[index],
+      description: bedDescription[index],
+      image: bedImage[index]
+    }));
+    render(productArray)
+  }
+};
+
+const render = (element) => {
+  let newBlock = ``;
+  if (element.length != 0) {
+    modalBackg.style.cssText += 'display: flex;';
+    element.forEach(elem => {
+      newBlock = `
+        <div class="modalItem">
+          <img src="${elem.image}" alt="" class="madalImage">
+          <h3 class="modalTitle">${elem.title}</h3>
+          <span class="modalPrice">${elem.price}</span>
+          <p class="modalDescription">${elem.description}</p>
+        </div>
+      `;
+      modalCont.innerHTML += newBlock;
+    });
+  } else {
+    modalBackg.style.cssText += 'display: none;'
+    modalCont.innerHTML = ``;
+  }
+};
+
+const allF = (event) => {
+  console.log(event)
+}
+
+const exclusiveItemListen = exclusiveContent.addEventListener('click', dropExclusiveItem); 
 const tableListen = tableBlock.addEventListener('click', dropTable),
 armchairListen = armchairBlock.addEventListener('click', dropArmchair),
 cabinetsListen = cabinetsBlock.addEventListener('click', dropCabinets),
-bedListen = bedBlock.addEventListener('click', dropBed);
-document.addEventListener('click', all)
+bedListen = bedBlock.addEventListener('click', dropBed),
+checkClose = modalCloseAll.addEventListener('click', all),
+checkCloseF = modalCloseF.addEventListener('click', all),
+checkCloseS = modalCloseS.addEventListener('click', all);
+document.addEventListener('click', allF);

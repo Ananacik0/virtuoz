@@ -519,12 +519,13 @@ footer {
   top: 0;
   left: 0;
   background: #3331328e;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   z-index: 3000;
   backdrop-filter: blur(10px);
   transition: .3s
+
 }
 
 .modalClose {
@@ -582,9 +583,19 @@ footer {
   display: flex;
   flex-direction: column;
   width: 300px;
+  && > img {
+    margin-bottom: 1rem;
+    border: solid 1px var(--dark-gray);
+    border-radius: 1rem;
+    box-shadow: #000 0px 0px 10px 1px;
+  }
+  && > h3 {
+    font-size: 20px;
+    font-weight: 400;
+  }
+  && > span {
+    font-size: 25px;
+    font-weight: 300;
+    margin-bottom: 1rem;
+  }
 }
-
-.noactive {
-  display: none;
-}
-
