@@ -599,3 +599,32 @@ footer {
     margin-bottom: 1rem;
   }
 }
+
+.policy {
+  display: block;
+  width: 300px;
+  margin: 0 auto;
+  color: var(--gray);
+  margin: 1rem;
+  transition: .3s;
+}
+
+.policy__title {
+  color: var(--light-beige);
+  font-size: 40px;
+  margin: 1rem;
+  font-weight: 200;
+}
+
+.policy:hover {
+  color: var(--beige);
+}
+
+.policy__list {
+  color: var(--beige);
+  margin: 2rem;
+}
+
+.policy__item {
+  color: var(--beige);
+}
