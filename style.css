@@ -659,6 +659,11 @@ footer {
     flex-wrap: wrap;
     justify-content: center;
   }
+
+  .modalContent {
+    justify-content: center;
+    gap: 2rem;
+  }
 }
 
 @media (max-width:925px) {
@@ -741,6 +746,19 @@ footer {
   .header__navigation {
     gap: .5rem;
   }
+
+  .close__f {
+    rotate: 45deg;
+  }
+
+  .close__s {
+    rotate: 315deg;
+  }
+
+  .modalClose {
+    top: 3rem;
+    right: 4rem;
+  }
 }
 
 @media (max-width: 500px) {
@@ -768,6 +786,13 @@ footer {
   .footer__navigation--list {
     flex-direction: column;
     align-items: center;
+  }
+}
+
+@media (max-width: 362px) {
+  .modalItem {
+    width: 250px !important;
+    
   }
 }
 
