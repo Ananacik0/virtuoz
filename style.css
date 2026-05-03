@@ -427,9 +427,9 @@ section {
 }
 
 .cover__button {
-  align-self: end;
+  align-self: start;
   margin-top: 2rem;
-  background: #b5b5b5cc;
+  background: #fff;
   color: var(--dark-gray);
   padding: .5rem;
   border: 1px solid var(--dark-gray);
@@ -736,7 +736,7 @@ footer {
   }
 
   .cover__button {
-    margin: 32px auto;
+    margin-top: 32px;
   }
 
   .about__description {
